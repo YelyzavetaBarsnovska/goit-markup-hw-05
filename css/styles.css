@@ -542,8 +542,7 @@ ul {
 .footer-subscribe-icon {
   margin-left: 16px;
 }
-
-.backdroup {
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -557,13 +556,13 @@ ul {
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdroup.is-open {
+.backdrop.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-.backdroup:not(.is-open).modal {
+.backdrop:not(.is-open) .modal {
   transform: translate(-50%, -50%) scale(1.5);
 }
 
@@ -606,12 +605,8 @@ ul {
   border: none;
 }
 
-.modal-button-close-svg {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-button-close-svg:hover,
-.modal-button-close-svg:focus {
+.modal-button-close:hover .modal-button-close-svg,
+.modal-button-close:focus .modal-button-close-svg {
   fill: #ffffff;
 }
 
@@ -623,6 +618,11 @@ ul {
   letter-spacing: 0.02em;
   color: #2e2f42;
   margin-bottom: 16px;
+}
+
+.modal-form-wrapper {
+  flex-direction: column;
+  gap: 16px;
 }
 
 .modal-form {
@@ -653,9 +653,12 @@ ul {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-form-input:focus,
-.modal-form-contacts-icon:focus {
+.modal-form-input:focus {
   border-color: #4d5ae5;
+}
+
+.modal-form-input:focus + .modal-form-contacts-icon {
+  fill: #4d5ae5;
 }
 
 .modal-form-contacts-icon {
@@ -718,7 +721,7 @@ ul {
   fill: transparent;
 }
 
-.input[type="checkbox"]:checked + .modal-checkbox-label .modal-custom-checkbox {
+input[type="checkbox"]:checked + .modal-checkbox-label .modal-custom-checkbox {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
